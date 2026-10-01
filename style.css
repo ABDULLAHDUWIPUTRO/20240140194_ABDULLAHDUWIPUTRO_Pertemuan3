@@ -1,0 +1,350 @@
+/* ===== Variabel Warna ===== */
+:root {
+    --indigo: #4f46e5;
+    --violet: #7c3aed;
+    --pink: #ec4899;
+    --teal: #14b8a6;
+    --orange: #f97316;
+    --bg: #f5f3ff;
+    --card: #ffffff;
+    --text: #1e1b4b;
+    --muted: #6b7280;
+    --border: #e0e7ff;
+    --radius: 20px;
+    --shadow: 0 10px 30px rgba(79, 70, 229, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", Roboto, Arial, sans-serif;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.08), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.10), transparent 40%),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    padding: 72px 20px 90px;
+    background: linear-gradient(135deg, var(--indigo), var(--violet) 55%, var(--pink));
+    border-bottom-left-radius: 50% 40px;
+    border-bottom-right-radius: 50% 40px;
+}
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+header::before {
+    width: 260px;
+    height: 260px;
+    top: -90px;
+    left: -60px;
+}
+
+header::after {
+    width: 200px;
+    height: 200px;
+    bottom: -80px;
+    right: -40px;
+}
+
+header h1 {
+    position: relative;
+    font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    position: relative;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    max-width: 620px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* ===== Navigasi ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: -26px;
+    position: sticky;
+    top: 12px;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 13px 34px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(236, 72, 153, 0.4);
+}
+
+/* ===== Konten Utama ===== */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 44px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+section {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(79, 70, 229, 0.18);
+}
+
+/* garis warna di atas kartu */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--indigo), var(--pink), var(--orange));
+}
+
+section:nth-of-type(2)::before {
+    background: linear-gradient(90deg, var(--teal), var(--indigo), var(--violet));
+}
+
+section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 6px 0 18px;
+    background: linear-gradient(90deg, var(--indigo), var(--pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 22px rgba(124, 58, 237, 0.2);
+}
+
+section p {
+    color: var(--muted);
+}
+
+/* ===== Form ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 13px 16px;
+    margin-top: 6px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: #faf5ff;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    background: #fff;
+    border-color: var(--violet);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+}
+
+fieldset {
+    border: 2px dashed var(--border);
+    border-radius: 14px;
+    padding: 8px 16px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--violet);
+}
+
+/* Radio & checkbox tampil seperti chip */
+input[type="radio"],
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+fieldset label {
+    font-weight: 500;
+    cursor: pointer;
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: 2px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    transition: all 0.2s ease;
+}
+
+fieldset label:hover {
+    border-color: var(--violet);
+    transform: translateY(-1px);
+}
+
+input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, var(--indigo), var(--violet));
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(79, 70, 229, 0.35);
+}
+
+input[type="checkbox"]:checked + label {
+    background: linear-gradient(135deg, var(--teal), var(--indigo));
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(20, 184, 166, 0.35);
+}
+
+input[type="radio"]:focus-visible + label,
+input[type="checkbox"]:focus-visible + label {
+    outline: 3px solid rgba(124, 58, 237, 0.4);
+    outline-offset: 2px;
+}
+
+button[type="submit"] {
+    margin-top: 6px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--indigo), var(--violet), var(--pink));
+    background-size: 200% 200%;
+    box-shadow: 0 10px 22px rgba(124, 58, 237, 0.35);
+    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(236, 72, 153, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--indigo), var(--violet));
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 860px) {
+    main {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+    header {
+        padding: 52px 16px 70px;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        padding: 30px 14px;
+        gap: 22px;
+    }
+
+    section {
+        padding: 22px 18px;
+    }
+
+    fieldset label {
+        padding: 8px 16px;
+    }
+
+    footer {
+        font-size: 0.72rem;
+    }
+}
